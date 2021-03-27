@@ -16,6 +16,7 @@ entregar informações de ranking.
 - Configure o ambiente de testes com os dados do Postgres no arquivo `src/config/config.json`.
 - Execute `sequelize db:migrate` na raiz do projeto.
 - Rode o sistema executando o comando `npm run dev` na raiz do projeto.
+- Renomeie o arquivo `.env.example` para `.env` e altere o valor `defaultkey` para um valor único, esse token será utilizado nas requisições da API.
 - Utilize a API pelo endereço: `http://localhost:3000`
 
 ## Documentação da API
