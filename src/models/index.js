@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import Sequelize from 'sequelize';
 import enVariables from '../config/config.json';
-
+const parse = require('pg-connection-string').parse;
+const databaseConfig = parse(process.env.DATABASE_URL);
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = enVariables[env];
@@ -10,7 +11,12 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize(
+    databaseConfig.database,
+    databaseConfig.user,
+    databaseConfig.password,
+    config
+  );
 } else {
   sequelize = new Sequelize(
     config.database,
