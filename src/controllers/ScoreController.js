@@ -1,7 +1,6 @@
-import model from '../models';
-import sequelize from 'sequelize';
+const { Score } = require('../models');
+const sequelize = require('sequelize');
 
-const { Score } = model;
 const orderFilter = {
   notification: 'notifications_score',
   infraction: 'infractions_score',
@@ -10,7 +9,7 @@ const orderFilter = {
     'COALESCE(notifications_score, 0) + COALESCE(infractions_score, 0) + COALESCE(time_left, 0)'
   ),
 };
-export default {
+module.exports = {
   async create(req, res) {
     const {
       name,

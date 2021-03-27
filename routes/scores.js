@@ -1,4 +1,4 @@
-import ScoreController from '../src/controllers/ScoreController';
+var ScoreController = require('../src/controllers/ScoreController');
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
