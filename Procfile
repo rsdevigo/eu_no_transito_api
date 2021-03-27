@@ -1,3 +1,3 @@
 # Procfile
-release: npx sequelize db:migrate:all
+release: npx sequelize db:migrate
 web: npm run start
